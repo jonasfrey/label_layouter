@@ -1,5 +1,5 @@
 import {f_o_html_from_o_js} from "https://deno.land/x/f_o_html_from_o_js@0.7/mod.js";
-import {f_move_v_in_array} from "https://deno.land/x/handyhelpers@0.6/mod.js";
+import {f_move_v_in_array} from "https://deno.land/x/handyhelpers@0.8/mod.js";
 import {
     f_add_css,
     f_s_css_prefixed
@@ -40,16 +40,16 @@ o_js__a_o_file = {
                                 innerText: 'move up',
                                 s_tag: 'button', 
                                 onclick: function(){
-                                    let n_idx = o_state.a_o_file.indexOf(o_file)
-                                    f_move_v_in_array(n_idx, n_idx-1);
+                                    f_move_v_in_array(o_state.a_o_file, o_file, -1);
+                                    o_js__a_o_file._f_render();
                                 } 
                             },
                             {
                                 innerText: 'move down', 
                                 s_tag: 'button', 
                                 onclick: function(){
-                                    let n_idx = o_state.a_o_file.indexOf(o_file)
-                                    f_move_v_in_array(n_idx, n_idx-1);
+                                    f_move_v_in_array(o_state.a_o_file, o_file, +1);
+                                    o_js__a_o_file._f_render();
                                 }
                             },
                             {
@@ -60,8 +60,6 @@ o_js__a_o_file = {
                                 innerText: "delete"
                             }
                         ]
-                        s_tag: 'img', 
-                        src: s
                     }
                 })
             ]
